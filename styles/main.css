@@ -86,7 +86,7 @@ nav a:hover{opacity:1;color:var(--green)}
 
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #405049;margin-top:53px}
 
-.stats-grid article{padding:27px 25px 18px 0;border-right:1px solid #405049;margin-right:25px}
+.stats-grid article{display:grid;grid-template-rows:116px auto;align-content:start;padding:27px 25px 18px 0;border-right:1px solid #405049;margin-right:25px}
 
 .stats-grid article:last-child{border:0;margin:0}
 
@@ -94,9 +94,9 @@ nav a:hover{opacity:1;color:var(--green)}
 
 .stats-grid strong span{font-size:37px}
 
-.stats-grid p{font-size:12px;line-height:1.5;color:#c3cbc5;max-width:170px}
+.stats-grid p{font-size:12px;line-height:1.5;color:#c3cbc5;max-width:170px;margin:12px 0 0}
 
-.metric-note{font:400 20px/1.4 var(--serif);border-top:1px solid #405049;padding-top:27px;margin:38px 0 0;max-width:900px}
+.metric-note{width:100%;max-width:none;font:400 20px/1.4 var(--serif);border-top:1px solid #405049;padding-top:27px;margin:38px 0 0}
 
 .experience-section{display:grid;grid-template-columns:22% 78%}
 
