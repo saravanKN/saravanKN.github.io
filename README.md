@@ -1,6 +1,12 @@
 # Saravanan Kumar Portfolio
 
-A dependency-free, responsive static portfolio.
+A dependency-free, responsive static portfolio with a bright visual design, an animated data-flow hero with a cursor-responsive particle field, illustrated project cards, expandable experience, and keyboard-accessible mobile navigation.
+
+The sun/moon switch in the header changes between light and dark mode. The site remembers explicit choices, defaults to the device preference, and follows device appearance changes until a visitor chooses a mode.
+
+Decorative animations respect reduced-motion preferences and can also be paused using the control above the technology strip. All core content and document links remain available without JavaScript.
+
+Project illustrations include small, explicitly illustrative demos: send a data event, inspect recommendation signals, and explore chatbot intents. The architecture diagram supports keyboard and touch exploration and a sample event walkthrough. A shared, capped canvas loop paints local data flows and short cursor sparkles; it stops when hidden, offscreen, paused, or reduced motion is requested. Static artwork remains available when canvas is unsupported.
 
 ## Project structure
 
@@ -19,7 +25,7 @@ portfolio-site/
 └── README.md
 ```
 
-Open `index.html` locally to preview it.
+Open `index.html` locally to preview it, or serve the repository with `python3 -m http.server 8765` and visit `http://localhost:8765`.
 
 ## Deploy
 

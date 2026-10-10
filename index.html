@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved appearance before painting the page.
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+        document.documentElement.dataset.theme = saved === 'dark' || saved === 'light'
+          ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      })();
+    </script>
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
@@ -17,57 +26,51 @@
 </span>
 </div>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Saravanan Kumar home">SK<span>.</span>
-</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <a class="brand" href="#top" aria-label="Saravanan Kumar home"><span class="brand-mark" aria-hidden="true">s<span>k</span></span><span class="brand-name">Saravanan Kumar</span></a>
       <nav id="site-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#work">Engineering Work</a>
-<a href="#expertise">Expertise</a>
-<a href="#highlights">Highlights</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
+        <a href="#work">Selected work</a><a href="#experience">Experience</a><a href="#about">About</a>
+        <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </nav>
+      <div class="header-controls">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13.1A8.5 8.5 0 0 1 10.9 3.5a8.5 8.5 0 1 0 9.6 9.6Z" /></svg>
+          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4" /></svg>
+        </button>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">+</span></button>
+      </div>
     </header>
-
     <main id="main">
       <section id="top" class="hero section-shell">
-        <div class="eyebrow">Bangalore, India <i>
-</i> Backend &amp; platform engineering</div>
-        <h1>Saravanan<br />
-<em>Kumar.</em>
-</h1>
-        <figure class="hero-portrait">
-          <img src="assets/images/saravanan-kumar-portrait.png" alt="Saravanan Kumar" />
-        </figure>
-        <div class="hero-grid">
-          <p class="hero-copy">Senior Backend Engineer <i>·</i> Distributed Systems &amp; Data Platforms. I build reliable, high-volume data and search systems where cloud infrastructure and thoughtful engineering leadership meet.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="assets/documents/resume/Saravanan_Kumar_Resume.pdf" target="_blank" rel="noopener">View resume <span>↗</span>
-</a>
-            <a class="button button-text" href="https://www.linkedin.com/in/saravanan-kumar-0b7a0b9b/" target="_blank" rel="noopener">LinkedIn <span>↗</span>
-</a>
-            <a class="button button-text" href="#contact">Get in touch <span>↘</span>
-</a>
-          </div>
+        <div class="hero-atmosphere" aria-hidden="true"><span></span><span></span><span></span></div>
+        <canvas class="data-particles" aria-hidden="true"></canvas>
+        <div class="hero-person"><span class="portrait-frame"><img src="assets/images/saravanan-kumar-portrait.png" alt="Saravanan Kumar" width="64" height="64" /></span><span>Saravanan Kumar <span class="person-divider">/</span> Backend &amp; platform engineer</span></div>
+        <h1>Complex systems.<br /><span>Clear outcomes.</span></h1>
+        <p class="hero-copy">I turn complex data into reliable platforms.<br class="desktop-break" /> Built for scale. Designed to last.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="assets/documents/resume/Saravanan_Kumar_Resume.pdf" target="_blank" rel="noopener">View resume <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="tech-ticker" aria-label="Core technologies">
-<span>Java</span>
-<span>Spring Boot</span>
-<span>Kafka</span>
-<span>OpenSearch</span>
-<span>Apache Spark</span>
-<span>OCI</span>
-<span>Kubernetes</span>
-</div>
-        <div class="scroll-note">Scroll to explore <span>
-</span>
-</div>
+        <div class="system-scene" aria-hidden="true">
+          <div class="scene-grid"></div>
+          <svg class="system-paths" viewBox="0 0 1000 300" fill="none">
+            <defs><linearGradient id="flow-gradient"><stop stop-color="#9cc5ff"/><stop offset=".5" stop-color="#7169ef"/><stop offset="1" stop-color="#a4dfd1"/></linearGradient></defs>
+            <path class="flow-track" d="M80 150H260C320 150 320 70 390 70H610C680 70 680 150 740 150H920"/>
+            <path class="flow-track" d="M80 150H260C320 150 320 230 390 230H610C680 230 680 150 740 150H920"/>
+            <path class="flow-track" d="M260 150H740"/>
+            <path class="flow-pulse pulse-one" d="M80 150H260C320 150 320 70 390 70H610C680 70 680 150 740 150H920"/>
+            <path class="flow-pulse pulse-two" d="M80 150H260C320 150 320 230 390 230H610C680 230 680 150 740 150H920"/>
+          </svg>
+          <div class="scene-node node-source"><span class="node-icon">≋</span><span>Data in</span><small>Extract &amp; stream</small></div>
+          <div class="scene-node node-core"><span class="core-orbit"></span><span class="core-symbol">sk<span>.</span></span><span>Engineered for scale</span></div>
+          <div class="scene-node node-output"><span class="node-icon">⌕</span><span>Insight out</span><small>Index &amp; search</small></div>
+          <span class="scene-label label-top"><i></i> Event-driven by design</span>
+          <span class="scene-label label-bottom"><i></i> Reliability at every layer</span>
+        </div>
+        <div class="hero-footnote"><span><i class="location-dot"></i> Based in Bangalore, India</span><a href="#about">A little more about me <span aria-hidden="true">↓</span></a></div>
       </section>
 
       <section id="about" class="section-shell about-section">
-        <div class="section-label">01 / About</div>
+        <div class="section-label">01 — The approach</div>
         <div class="section-content">
           <h2>I build the systems that make complex data useful.</h2>
           <div class="prose two-column">
@@ -84,7 +87,7 @@
       </section>
 
       <section id="highlights" class="section-shell highlights-section">
-        <div class="section-label">02 / At a glance</div>
+        <div class="section-label">02 — At a glance</div>
         <div class="stats-grid">
           <article>
 <strong>10<span>+</span>
@@ -107,8 +110,67 @@
         <p class="metric-note">Improved high-volume indexing throughput by addressing ingestion and search bottlenecks.</p>
       </section>
 
+      <section id="work" class="section-shell work-section">
+        <div class="section-label">03 — Selected work</div>
+        <div class="work-intro">
+<h2>Thoughtful engineering.<br /><span class="muted">Real-world impact.</span></h2>
+<p>A few things I’ve helped bring to life — from high-volume data platforms to applied AI.</p>
+</div>
+        <div class="project-grid">
+          <article class="project project-wide">
+<div class="project-visual visual-data"><canvas class="art-canvas" aria-hidden="true"></canvas><div class="visual-caption">EVENT → INSIGHT</div><div class="data-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="visual-chip">Spark <span>→</span> Oracle DB <span>→</span> Kafka <span>→</span> OpenSearch</div><button class="demo-button data-demo" type="button" aria-label="Send a sample data event">Send an event <span aria-hidden="true">↗</span></button></div><div class="project-index">01</div>
+<div>
+<p class="project-type">Data &amp; search platform</p>
+<h3>OCI Usage Consumption Platform</h3>
+<p>A cloud-based, event-driven platform for technology-consumption workflows. Work included data ingestion, indexing, search, integrations, notifications, shared data services, and applied-ML exploration.</p>
+<div class="project-detail">
+<p>
+<b>Challenge</b> Keep high-volume ingestion and search reliable across scheduled and incremental load scenarios.</p>
+<p>
+<b>Approach</b> Parallel Kafka consumption and OpenSearch bulk indexing, Spark extraction, sequential indexing, safe alias promotion, and operational recovery controls.</p>
+<p>
+<b>Outcome</b> Improved indexing throughput by resolving ingestion and search bottlenecks.</p>
+</div>
+<p class="tags">
+<span>Kafka</span>
+<span>Apache Spark</span>
+<span>OpenSearch</span>
+<span>OCI</span>
+<span>Helm</span>
+</p>
+</div>
+</article>
+          <article class="project">
+<div class="project-visual visual-ml" aria-hidden="true"><div class="ml-orbit orbit-a"></div><div class="ml-orbit orbit-b"></div><div class="ml-center">✳</div><span class="ml-chip">Signals → Decisions</span></div>
+<div class="project-play"><button class="demo-button ml-demo" type="button">Explore a signal <span aria-hidden="true">✳</span></button><span class="demo-status ml-status" role="status">Illustrative signal explorer</span></div><div class="project-index">02</div>
+<p class="project-type">Applied ML proof of concept</p>
+<h3>Extension Decision Recommendation</h3>
+<p>Contributed to a Python/FastAPI service that recommends active trial plans and permitted extension options for SPM decision workflows while maintaining an auditable human-review path.</p>
+<p class="tags">
+<span>Python</span>
+<span>FastAPI</span>
+<span>XGBoost</span>
+<span>Vector Databases</span>
+</p>
+</article>
+          <article class="project">
+<div class="project-visual visual-ai" aria-hidden="true"><div class="chat-bubble">Intent understood <span>✦</span></div><div class="chat-line"></div><div class="chat-bubble chat-reply"><i></i><i></i><i></i></div><div class="visual-caption">A MORE HUMAN WORKFLOW</div></div>
+<div class="project-play"><button class="demo-button ai-demo" type="button">Try an intent <span aria-hidden="true">↗</span></button><span class="demo-status ai-status" role="status">Illustrative workflow preview</span></div><div class="project-index">03</div>
+<p class="project-type">Conversational AI proof of concept</p>
+<h3>GenAI Chatbot for URL &amp; Opportunity Creation</h3>
+<p>Led a conversational-AI proof of concept combining BlenderBot and vector retrieval for sales-rep intent recognition, with workflow UI and Search Service REST APIs for guided URL and opportunity creation.</p>
+<p class="tags">
+<span>BlenderBot</span>
+<span>JavaScript</span>
+<span>Spring Boot</span>
+<span>Vector Database</span>
+</p>
+</article>
+        </div>
+      </section>
+
       <section id="experience" class="section-shell experience-section">
-        <div class="section-label">03 / Experience</div>
+        <div class="section-label">04 — The journey</div>
         <div class="timeline">
           <article class="role role-featured">
             <div class="role-meta">
@@ -120,11 +182,11 @@
 <summary>
 <div>
 <p class="company">
-<img class="company-logo" src="https://www.oracle.com/favicon.ico" alt="" />Oracle India Private Ltd</p>
+<img class="company-logo" src="assets/images/oracle-mark.svg" alt="" />Oracle India Private Ltd</p>
 <h2>Senior Software Engineer <small>IC-III · Mar 2024 — Present</small>
 </h2>
 </div>
-<small>Click to collapse</small>
+<small>View details</small>
 <span class="toggle-symbol" aria-hidden="true">−</span>
 </summary>
 <div class="experience-content">
@@ -158,8 +220,8 @@
 <span>Kubernetes</span>
 <span>Oracle Database</span>
 </p>
-<details open>
-<summary>Earlier role at Oracle <small>Click to collapse</small>
+<details>
+<summary>Earlier role at Oracle <small>View details</small>
 <span class="toggle-symbol" aria-hidden="true">−</span>
 </summary>
 <div>
@@ -184,7 +246,7 @@
 <span>Coimbatore, India</span>
             </div>
             <div class="role-body">
-<details class="experience-details" open>
+<details class="experience-details">
 <summary>
 <div>
 <p class="company">
@@ -193,7 +255,7 @@
 <h2>Senior Software Engineer <small>Product Development</small>
 </h2>
 </div>
-<small>Click to collapse</small>
+<small>View details</small>
 <span class="toggle-symbol" aria-hidden="true">−</span>
 </summary>
 <div class="experience-content">
@@ -223,7 +285,7 @@
 <span>Chennai, India</span>
             </div>
             <div class="role-body">
-<details class="experience-details" open>
+<details class="experience-details">
 <summary>
 <div>
 <p class="company">
@@ -232,7 +294,7 @@
 <h2>Software Engineer <small>Full Stack</small>
 </h2>
 </div>
-<small>Click to collapse</small>
+<small>View details</small>
 <span class="toggle-symbol" aria-hidden="true">−</span>
 </summary>
 <div class="experience-content">
@@ -261,85 +323,32 @@
         </div>
       </section>
 
-      <section id="work" class="section-shell work-section">
-        <div class="section-label">04 / Engineering work</div>
-        <div class="work-intro">
-<h2>From ingestion to action.</h2>
-<p>Selected initiatives drawn from enterprise platform, workflow, and applied-ML work.</p>
-</div>
-        <div class="project-grid">
-          <article class="project project-wide">
-<div class="project-index">01</div>
-<div>
-<p class="project-type">Data &amp; search platform</p>
-<h3>OCI Usage Consumption Platform</h3>
-<p>A cloud-based, event-driven platform for technology-consumption workflows. Work included data ingestion, indexing, search, integrations, notifications, shared data services, and applied-ML exploration.</p>
-<div class="project-detail">
-<p>
-<b>Challenge</b> Keep high-volume ingestion and search reliable across scheduled and incremental load scenarios.</p>
-<p>
-<b>Approach</b> Parallel Kafka consumption and OpenSearch bulk indexing, Spark extraction, sequential indexing, safe alias promotion, and operational recovery controls.</p>
-<p>
-<b>Outcome</b> Improved indexing throughput by resolving ingestion and search bottlenecks.</p>
-</div>
-<p class="tags">
-<span>Kafka</span>
-<span>Apache Spark</span>
-<span>OpenSearch</span>
-<span>OCI</span>
-<span>Helm</span>
-</p>
-</div>
-</article>
-          <article class="project">
-<div class="project-index">02</div>
-<p class="project-type">Applied ML proof of concept</p>
-<h3>Extension Decision Recommendation</h3>
-<p>Contributed to a Python/FastAPI service that recommends active trial plans and permitted extension options for SPM decision workflows while maintaining an auditable human-review path.</p>
-<p class="tags">
-<span>Python</span>
-<span>FastAPI</span>
-<span>XGBoost</span>
-<span>Vector Databases</span>
-</p>
-</article>
-          <article class="project">
-<div class="project-index">03</div>
-<p class="project-type">Conversational AI proof of concept</p>
-<h3>GenAI Chatbot for URL &amp; Opportunity Creation</h3>
-<p>Led a conversational-AI proof of concept combining BlenderBot and vector retrieval for sales-rep intent recognition, with workflow UI and Search Service REST APIs for guided URL and opportunity creation.</p>
-<p class="tags">
-<span>BlenderBot</span>
-<span>JavaScript</span>
-<span>Spring Boot</span>
-<span>Vector Database</span>
-</p>
-</article>
-        </div>
-      </section>
-
       <section class="section-shell architecture-section" aria-labelledby="architecture-title">
-        <div class="section-label">05 / Architecture &amp; system design</div>
+        <div class="section-label">05 — Under the hood</div>
         <div class="architecture-copy">
-<h2 id="architecture-title">Built for throughput, recovery, and safe promotion.</h2>
-<p>The platform work brings together event-driven services, data extraction, search indexing, and production controls. This conceptual view reflects the technologies and flow described in the resume—not internal implementation detail.</p>
+<h2 id="architecture-title">Every layer.<br /><span>Built with intention.</span></h2>
+<p>From the first event to the final query, reliability is part of the design. A conceptual look at the data platform patterns I work with.</p>
 </div>
-        <div class="architecture-diagram" role="img" aria-label="Conceptual architecture: source data moves through Spark extraction and Kafka consumption to parallel OpenSearch indexing, then safe alias promotion serves APIs and workflows.">
-<div class="diagram-node">Oracle data foundation<small>tables · materialized views · packages</small>
+        <div id="architecture-flow" class="architecture-diagram" aria-label="Conceptual architecture: Spark extraction feeds Oracle DB, followed by Kafka consumption and parallel OpenSearch indexing, then safe alias promotion serves APIs and workflows."><canvas class="architecture-canvas" aria-hidden="true"></canvas>
+<button type="button" disabled class="diagram-node" aria-pressed="false">Spark extraction<small>independent monthly &amp; rolling loads</small>
+</button>
+<div class="diagram-arrow" aria-hidden="true">→</div>
+<button type="button" disabled class="diagram-node" aria-pressed="false">Oracle DB<small>tables · materialized views · packages</small>
+</button>
+<div class="diagram-arrow" aria-hidden="true">→</div>
+<button type="button" disabled class="diagram-node diagram-accent" aria-pressed="false">Kafka consumption<small>multi-pod, parallel consumers</small>
+</button>
+<div class="diagram-arrow" aria-hidden="true">→</div>
+<button type="button" disabled class="diagram-node diagram-accent" aria-pressed="false">OpenSearch indexing<small>parallel bulk workers</small>
+</button>
+<div class="diagram-arrow" aria-hidden="true">→</div>
+<button type="button" disabled class="diagram-node" aria-pressed="false">Safe alias promotion<small>search, APIs &amp; workflows</small>
+</button>
 </div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-node">Spark extraction<small>independent monthly &amp; rolling loads</small>
-</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-node diagram-accent">Kafka consumption<small>multi-pod, parallel consumers</small>
-</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-node diagram-accent">OpenSearch indexing<small>parallel bulk workers</small>
-</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-node">Safe alias promotion<small>search, APIs &amp; workflows</small>
-</div>
-</div>
+        <div class="architecture-play">
+          <button class="demo-button pipeline-demo" type="button" aria-controls="architecture-flow">Run a sample event <span aria-hidden="true">→</span></button>
+          <p class="pipeline-status" role="status">Select a layer to explore it, or follow a sample event through the system.</p>
+        </div>
         <div class="architecture-points">
 <span>Event-driven architecture</span>
 <span>Independent extraction and sequential indexing</span>
@@ -349,7 +358,7 @@
       </section>
 
       <section id="expertise" class="section-shell expertise-section">
-        <div class="section-label">06 / Technical expertise</div>
+        <div class="section-label">06 — The toolkit</div>
         <div class="expertise-grid">
           <article>
 <h3>Languages</h3>
@@ -379,7 +388,7 @@
       </section>
 
       <section id="education" class="section-shell education-section">
-        <div class="section-label">07 / Education &amp; recognition</div>
+        <div class="section-label">07 — Always learning</div>
         <div class="education-grid">
 <div>
 <h2>Education</h2>
@@ -416,9 +425,8 @@
 
       <section id="contact" class="contact-section">
 <div class="section-shell">
-<div class="section-label">08 / Contact</div>
-<h2>Let’s build something<br />
-<em>that lasts.</em>
+<div class="section-label">08 — What’s next</div>
+<h2>Good things start<br /><em>with a conversation.</em>
 </h2>
 <p>I’m happy to connect about senior backend engineering, platform architecture, data systems, and technical leadership opportunities.</p>
 <div class="contact-links">
@@ -437,12 +445,13 @@
 </section>
       <section class="technology-rail" aria-labelledby="technology-rail-title">
 <div class="section-shell">
-<div class="section-label">09 / Technology rail</div>
+<div class="section-label">Built with a familiar toolkit</div>
 <div class="rail-heading">
 <h2 id="technology-rail-title">Technologies I have worked with.</h2>
-<p>A moving index of the core tools across backend, data, cloud, and platform work.</p>
+<p>The tools change. The commitment to good engineering stays.</p>
 </div>
 </div>
+<button class="motion-toggle" type="button" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button>
 <div class="tech-rail" aria-label="Java, Spring Boot, Kafka, Elasticsearch, OpenSearch, Apache Spark, Oracle Cloud Infrastructure, Docker, Kubernetes, Helm, Maven, Git, Grafana, Python, FastAPI, and JavaScript">
 <div class="tech-rail-track">
 <div class="tech-rail-group">
@@ -522,7 +531,9 @@
 </span> Saravanan Kumar</span>
 <a href="#top">Back to top ↑</a>
 </footer>
+    <canvas class="cursor-fx" aria-hidden="true"></canvas>
     <script src="scripts/main.js">
 </script>
+    <script src="scripts/effects.js"></script>
   </body>
 </html>
